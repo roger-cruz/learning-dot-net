@@ -6,3 +6,7 @@ Currently, here are the VS Studio solutions:
 AppAssemblyExample - Extract assembly information from a .NET app
 
 AppDomainExample - Create App Domains and explore their attributes
+
+ListPerformanceCounters - List performance counter categories on the current computer
+
+ListWCFServices - List WCF services on current computer

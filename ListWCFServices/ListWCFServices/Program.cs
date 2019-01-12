@@ -27,11 +27,16 @@ namespace ListWCFServices
 
         static void PrintInstances(PerformanceCounterCategory category)
         {
-            if (category == null)
+            string[] instances;
+            try
             {
+                instances = category.GetInstanceNames();
+            }
+            catch
+            {
+                Console.WriteLine("No instances found in this category.");
                 return;
             }
-            var instances = category.GetInstanceNames();
 
             foreach (var instance in instances)
             {
