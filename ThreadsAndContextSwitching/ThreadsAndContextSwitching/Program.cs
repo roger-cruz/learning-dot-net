@@ -9,8 +9,6 @@ namespace ThreadsAndContextSwitching
 {
     class Program
     {
-        private static readonly object executedLock = new object();
-        private static bool executed;
 
         static void Main(string[] args)
         {
@@ -24,19 +22,22 @@ namespace ThreadsAndContextSwitching
             // This schedules execution of the thread method.
             threadA.Start();
             Console.WriteLine("Thread A started");
-            Console.ReadLine();
+            while (true)
+            {
+                Thread.Sleep(2000);
+                Console.Write("M");
+
+            }
         }
 
         private static void ThreadA()
         {
-            lock (executedLock)
-            {
-                if (!executed)
-                {
                     Console.WriteLine("Thread A has been spawned");
-                    executed = true;
-                }
-            }
-        }
+                    while (true)
+                    {
+                        Thread.Sleep(2000);
+                        Console.Write("A");
+                    }
+         }
     }
 }
